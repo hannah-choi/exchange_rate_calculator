@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Sen", sans-serif;
+}
+
+select {
+    font-family: "Sen", sans-serif;
+}
+
+.row:not(last-of-type) {
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    width: 300px;
+}
+
+.container {
+    padding: 80px;
+    border: 1px solid #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 5px 10px;
+    font-family: inherit;
+    border-radius: 0;
+    background-color: #333333;
+    border: none;
+    color: white;
+}
+
+div.from,
+div.change,
+div.to {
+    display: flex;
+    justify-content: space-between;
+}

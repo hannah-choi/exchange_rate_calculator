@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exchange Rate Calculator</title>
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="from row">
+                    <select class="currency from" id="select_from"></select>
+                    <input
+                        type="number"
+                        id="numberBaseCurrency"
+                        class="from number"
+                    />
+                </div>
+                <div class="change row">
+                    <button>Swap</button><span>1GBP = 29343 EUR</span>
+                </div>
+                <div class="to row">
+                    <select class="currency to" id="select_to"></select>
+                    <span class="to number">1.00</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
