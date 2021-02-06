@@ -1,76 +1,49 @@
-const select_from = document.querySelector(".currency.from");
-const select_to = document.querySelector(".currency.to");
+const $baseCurrency = document.getElementById("baseCurrency");
+const $targetCurrency = document.getElementById("targetCurrency");
+const swap = document.getElementById("swap");
+let baseAmount = 1;
+let targetAmount = 1;
 
-const numberBaseCurrency = document.querySelector(".from.number");
-const numberConvertCurrency = document.querySelector(".to.number");
+const baseResult = document.querySelector(".base.number");
+const targetResult = document.querySelector(".target.number");
 
-let numbers = null;
-let currencies = null;
+function calculate() {
+    const baseCurrency = $baseCurrency.value;
+    const targetCurrency = $targetCurrency.value;
 
-let base_currency = "GBP";
-let convert_currency = "EUR";
-let howMuch = 1;
-
-function updateNumbers() {
-    numberBaseCurrency.value = getCurrency(base_currency);
-    numberConvertCurrency.innerHTML = getCurrency(convert_currency);
-}
-
-function getCurrency(which) {
-    return numbers[currencies.indexOf(which)] * howMuch;
-}
-
-function getData(selectedValue) {
-    fetch(
-        `https://v6.exchangerate-api.com/v6/98394cbbeae00d05a3ca0d4d/latest/${
-            !selectedValue ? "GBP" : selectedValue
-        }`
-    )
+    fetch(`https://api.exchangeratesapi.io/latest?base=${currency_one}`)
         .then(res => res.json())
         .then(result => {
-            numbers = Object.values(result.conversion_rates);
-            currencies = Object.keys(result.conversion_rates);
-
-            function getOptions(which) {
-                return currencies.map(
-                    currency =>
-                        `<option ${
-                            currency === which ? "selected" : ""
-                        }>${currency}</option>`
-                );
-            }
-
-            numbers && getCurrency(base_currency);
-            numbers && getCurrency(convert_currency);
-
-            select_from.innerHTML = getOptions(base_currency);
-            select_to.innerHTML = getOptions(convert_currency);
-
-            updateNumbers();
+            //const rates = result.conversion_rates[targetCurrency];
+            baseResult.value =
+                result.conversion_rates[baseCurrency] * baseAmount;
+            targetResult.value =
+                result.conversion_rates[targetCurrency] * targetAmount;
         });
 }
 
 document.addEventListener("change", ({ target }) => {
-    switch (target.id) {
-        case "select_from":
-            base_currency = target.value;
-            getData(select_from.value);
-            break;
-        case "select_to":
-            convert_currency = target.value;
-            getData(select_from.value);
-            break;
-        case "numberBaseCurrency":
-            if (howMuch < 0) {
-                return;
-            }
-            howMuch = target.value;
-            getCurrency(convert_currency);
-            updateNumbers();
-            break;
-        default:
-            return;
+    if (target.tagName !== "SELECT") {
+        return;
     }
+    calculate();
 });
 
-getData();
+document.addEventListener("input", ({ target }) => {
+    if (target.tagName !== "INPUT") {
+        return;
+    }
+    baseAmount = baseResult.value;
+    targetAmount = targetResult.value;
+    calculate();
+});
+
+swap.addEventListener("click", () => {
+    [$baseCurrency.value, $targetCurrency.value] = [
+        $targetCurrency.value,
+        $baseCurrency.value,
+    ];
+    calculate();
+});
+
+calculate();

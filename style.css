@@ -37,9 +37,9 @@ button {
     color: white;
 }
 
-div.from,
+div.base,
 div.change,
-div.to {
+div.target {
     display: flex;
     justify-content: space-between;
 }
