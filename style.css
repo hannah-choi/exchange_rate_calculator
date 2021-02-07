@@ -43,3 +43,14 @@ div.target {
     display: flex;
     justify-content: space-between;
 }
+
+div#error {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.error {
+    visibility: hidden;
+}
