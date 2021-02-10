@@ -9,23 +9,28 @@
     </head>
     <body>
         <div class="container">
-            <div class="wrapper">
-                <div class="from row">
-                    <select class="currency from" id="select_from"></select>
-                    <input
-                        type="number"
-                        id="numberBaseCurrency"
-                        class="from number"
-                    />
-                </div>
-                <div class="change row">
-                    <button>Swap</button><span>1GBP = 29343 EUR</span>
-                </div>
-                <div class="to row">
-                    <select class="currency to" id="select_to"></select>
-                    <span class="to number">1.00</span>
-                </div>
-            </div>
+            <header>
+                <h1>Currency Converter</h1>
+            </header>
+            <div class="date">2021-02-09</div>
+            <ul class="currencyUl">
+                <li class="currencyLi">
+                    <div class="flag">
+                        <img src="https://img.geonames.org/flags/x/gb.gif" />
+                    </div>
+                    <div class="currencyData">
+                        <p class="input">
+                            <span class="currencySymbol">&#163;</span
+                            ><input type="number" placeholder="0.0000" />
+                        </p>
+                        <p class="currencyName">GBP - British Pound</p>
+                        <p class="baseCurrency">1 GBP = 1 GBP</p>
+                    </div>
+                </li>
+            </ul>
+            <footer>
+                <button>Add Currency</button>
+            </footer>
         </div>
     </body>
 </html>

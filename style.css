@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap");
+* {
+    box-sizing: border-box;
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -8,24 +12,88 @@ body {
     font-family: "Sen", sans-serif;
 }
 
+p {
+    margin: 5px;
+}
+
 select {
     font-family: "Sen", sans-serif;
 }
 
-.row:not(last-of-type) {
-    margin-bottom: 10px;
-}
-
-.wrapper {
-    width: 300px;
-}
-
 .container {
-    padding: 80px;
-    border: 1px solid #333333;
+    width: 440px;
+    height: 90vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+ul.currencyUl {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+}
+
+li.currencyLi {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding: 20px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.currencyLi .input {
+    position: relative;
+}
+
+.currencyLi .input .currencySymbol {
+    font-size: 1.8rem;
+    /* border: 1px solid blue; */
+    position: absolute;
+    bottom: 4px;
+}
+
+.currencyLi .currencyName {
+    font-weight: 700;
+}
+
+.currencyLi .input input {
+    font-size: 1.5rem;
+    padding: 2px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+div.flag {
+    width: 70px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+div.flag img {
+    width: 48px;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    height: 70px;
+    bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    background-color: white;
+}
+
+footer button {
+    margin-top: 10px;
+    width: 400px;
+    height: 50px;
+    font-size: 1rem;
 }
 
 button {
@@ -37,9 +105,12 @@ button {
     color: white;
 }
 
-div.from,
-div.change,
-div.to {
-    display: flex;
-    justify-content: space-between;
+span.currencySymbol {
+    margin-right: 5px;
+}
+
+div.date {
+    width: 100%;
+    text-align: right;
+    border-bottom: 1px solid gray;
 }
