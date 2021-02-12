@@ -13,7 +13,7 @@ body {
 }
 
 p {
-    margin: 5px;
+    margin: 5px 0;
 }
 
 select {
@@ -28,6 +28,7 @@ select {
     flex-direction: column;
     align-items: center;
     position: relative;
+    overflow-x: hidden;
 }
 
 ul {
@@ -37,11 +38,22 @@ ul {
 }
 
 ul.currencyUl {
+    height: calc(90vh - 160px);
     overflow: scroll;
 }
 
 ul.addCurrencyUl {
-    z-index: 1;
+    left: 105%;
+    height: calc(90vh - 160px);
+    position: absolute;
+    background-color: white;
+    bottom: 60px;
+    overflow: auto;
+    transition: all 0.3s ease-in;
+}
+
+ul.addCurrencyUl li:first-of-type {
+    border-top: 1px solid gray;
 }
 
 li.currencyLi {
@@ -86,21 +98,21 @@ div.flag img {
     width: 48px;
 }
 
-footer {
-    width: 100%;
+button.addCurrencyBtn {
     position: absolute;
-    height: 70px;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-}
-
-footer button {
-    margin-top: 10px;
     width: 400px;
     height: 50px;
     font-size: 1rem;
+    left: 15px;
+    bottom: 0;
+}
+
+button.addCurrencyBtn.open {
+    background-color: #d9534f;
+}
+
+button.addCurrencyBtn.open + ul.addCurrencyUl {
+    left: 0;
 }
 
 button {
@@ -120,4 +132,41 @@ div.date {
     width: 100%;
     text-align: right;
     border-bottom: 1px solid gray;
+}
+
+li.addCurrencyLi {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    margin: 0;
+    list-style-type: none;
+}
+
+li.addCurrencyLi .flag {
+    width: 64px;
+    margin-left: 10px;
+}
+
+li.addCurrencyLi .flag img {
+    width: 64px;
+}
+
+li.addCurrencyLi .currencyName {
+    font-size: 1.2rem;
+}
+
+li.addCurrencyLi .baseCurrency {
+    margin-top: -3px;
+    font-size: 0.8rem;
+}
+
+li.addCurrencyLi .currencyData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+li.addCurrencyLi.disabled {
+    opacity: 0.5;
 }

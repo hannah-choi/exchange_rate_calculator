@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Exchange Rate Calculator</title>
         <link href="style.css" rel="stylesheet" />
-        <script src="script.js" defer></script>
     </head>
     <body>
         <div class="container">
@@ -28,20 +27,29 @@
                     </div>
                 </li>
             </ul>
-            <footer>
-                <button>Add Currency</button>
-            </footer>
+            <button class="addCurrencyBtn">Add Currency</button>
             <ul class="addCurrencyUl">
-                <li class="currencyLi">
+                <li class="addCurrencyLi disabled">
                     <div class="flag">
-                        <img src="https://img.geonames.org/flags/x/gb.gif" />
+                        <img src="https://www.countryflags.io/gb/flat/64.png" />
                     </div>
                     <div class="currencyData">
                         <p class="currencyName">GBP</p>
                         <p class="baseCurrency">British Pound</p>
                     </div>
                 </li>
+
+                <li class="addCurrencyLi">
+                    <div class="flag">
+                        <img src="https://www.countryflags.io/kr/flat/64.png" />
+                    </div>
+                    <div class="currencyData">
+                        <p class="currencyName">KRW</p>
+                        <p class="baseCurrency">South Korean Won</p>
+                    </div>
+                </li>
             </ul>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
